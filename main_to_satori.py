@@ -49,7 +49,11 @@ for test in list_of_tests:
         tests_names.append(tnt[0])
         os.rename(test, (str(len(tests_names)) + tnt[1]))
 
-
+io_archive = zipfile.ZipFile(os.path.join(path_main, 'io.zip'), 'w')
+for number in range(len(tests_names)):
+    io_archive.write(str(number + 1) + '.in')
+    io_archive.write(str(number + 1) + '.out')
+io_archive.close()
 
 
 
