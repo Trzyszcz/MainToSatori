@@ -55,5 +55,13 @@ for number in range(len(tests_names)):
     io_archive.write(str(number + 1) + '.out')
 io_archive.close()
 
+tests_yaml_file = open('tests-multi.yaml', 'w')
+tests_yaml_file.write('1-' + str(len(tests_names)) + ':\n')
+tests_yaml_file.write('  judge   : !file ../common/multijudge.py\n')
+tests_yaml_file.write('  io      : !file io.zip\n')
+tests_yaml_file.write('  memory  : 128MB\n')
+tests_yaml_file.write('  time    : 5s')
+tests_yaml_file.close()
+
 
 
